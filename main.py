@@ -1,4 +1,7 @@
+from stats import word_count
+
 def main():
+
 
     with open ("books/frankenstein.txt") as f:
         file_contents = f.read()
@@ -6,14 +9,12 @@ def main():
     count = word_count (file_contents)
     lower_case = letter_count (file_contents) 
     print ("Start of Report for Frankenstein") 
-    print (f"There are {count} words in this file")  
+    print (f"{count} words found in the document")  
     for item in lower_case:
         print (f"The '{item['char']}' character was found {item["num"]} times")
     print ("-----end of report-----")
 
-def word_count (file_content):
-    words = file_content.split()    
-    return len(words)
+
 
 def letter_count (file_content):
     letter_dict = {}
