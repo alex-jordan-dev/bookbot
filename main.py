@@ -1,9 +1,12 @@
+import sys
 from stats import word_count
 
 def main():
 
-
-    with open ("books/frankenstein.txt") as f:
+    if len(sys.argv) < 2:
+        print ("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    with open (sys.argv[1]) as f:
         file_contents = f.read()
         
     count = word_count (file_contents)
@@ -11,7 +14,7 @@ def main():
     print ("Start of Report for Frankenstein") 
     print (f"{count} words found in the document")  
     for item in lower_case:
-        print (f"The '{item['char']}' character was found {item["num"]} times")
+        print (f"{item['char']}: {item["num"]}")
     print ("-----end of report-----")
 
 
